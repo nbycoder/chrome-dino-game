@@ -21,7 +21,7 @@ body {
   right: 1vmin;
   top: 1vmin;
 }
-.world .start {
+.world .start, .world .end {
   position: absolute;
   font-size: 5vmin;
   left: 50%;

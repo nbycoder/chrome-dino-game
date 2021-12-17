@@ -9,6 +9,7 @@ let nextCactusTime;
 
 export function setupCactus() {
     nextCactusTime = CACTUS_INTERVAL_MIN;
+    document.querySelectorAll('[data-cactus]').forEach(cactus => {cactus.remove()})
 }
 
 export function updateCactus(delta, speedScale) {
@@ -27,6 +28,12 @@ export function updateCactus(delta, speedScale) {
         nextCactusTime = randomNumberBetween(CACTUS_INTERVAL_MIN, CACTUS_INTERVAL_MAX) / speedScale
     }
     nextCactusTime -= delta
+}
+
+export function getCactus() {
+    return [...document.querySelectorAll('[data-cactus]')].map(cactus => {
+        return cactus.getBoundingClientRect() //! this returns a rectangle for every cactus on the screen so we can interact with it
+    })
 }
 
 function createCactus() {
